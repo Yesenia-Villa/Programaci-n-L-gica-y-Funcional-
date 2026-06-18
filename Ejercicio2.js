@@ -4,7 +4,8 @@ const hechos = [
     { padre: "Abraham", hijo: "Juan" }
 ];
 
-//1.  Dos personas son hermanos si tenen el mismo padre y son personas diferentes. 
+
+// REGLA 1: Hermanos
 function SonHermanos(persona1, persona2){
 
     const hermanos = hechos.some(
@@ -20,10 +21,8 @@ function SonHermanos(persona1, persona2){
     return hermanos;
 }
 
-console.log(SonHermanos("Luis","Pedro"));
 
-
-//2.  A es abuelo de C, Si A es padre de B y B es padre de C. 
+// REGLA 2: Abuelo
 function EsAbuelo(abuelo, nieto){
 
     const resultado = hechos.some(
@@ -38,11 +37,8 @@ function EsAbuelo(abuelo, nieto){
     return resultado;
 }
 
-console.log(EsAbuelo("Abraham","Luis"));
-console.log(EsAbuelo("Abraham","Pedro"));
 
-
-
+// CONSULTAS
 
 // 1. ¿Es cierto que Abraham es padre de Juan?
 const esPadre = hechos.some(
@@ -67,3 +63,15 @@ const hijosJuan = hechos
     .map(dato => dato.hijo);
 
 console.log("Los hijos de Juan son:", hijosJuan);
+
+
+// 4. ¿Luis y Pedro son hermanos?
+console.log("¿Luis y Pedro son hermanos?", SonHermanos("Luis","Pedro"));
+
+
+// 5. ¿Abraham es abuelo de Luis?
+console.log("¿Abraham es abuelo de Luis?", EsAbuelo("Abraham","Luis"));
+
+
+// 6. ¿Abraham es abuelo de Pedro?
+console.log("¿Abraham es abuelo de Pedro?", EsAbuelo("Abraham","Pedro"));
