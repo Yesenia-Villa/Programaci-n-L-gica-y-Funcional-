@@ -11,7 +11,7 @@ const transacciones =  Object.freeze([
 const esRetiro = transaccion => transaccion.tipo == 'retiro';
 const esMontoSOspe=transaccion => transaccion.monto >=50000;
 const esZonaRiesgo = transaccion => !(transaccion.pais == 'México');
-
+//regla
 const alertaFraude = transaccion =>esRetiro(transaccion) && (esMontoSOspe(transaccion) || esZonaRiesgo(transaccion));
 
 function* detectarFraudes(iterable, predicado){
@@ -37,6 +37,7 @@ const aspirantes = Object.freeze( [
 
 const listaAspirantes =aspirantes.map(aspirante=>({...aspirante , puntajeFinal:(aspirante.examen*0.70)+ (aspirante.entrevista*0.30)
 }));
+
 const calificaParaBeca=aspirante=>aspirante.puntajeFinal>=85 && aspirante.estudioSocioeconomico;
 
 function* obtenerBecados(iterable, predicado){
